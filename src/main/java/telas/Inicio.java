@@ -86,7 +86,6 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Produtos no estoque:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -124,12 +123,13 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Adicionar produtos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Editar Produtos");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,8 +231,33 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+       int linha = tableestoque.getSelectedRow();
+    
+    if (linha != -1) {
+        EstoqueBean eb = new EstoqueBean();
+        
+        // Pega o ID da coluna 0 e os outros dados
+        eb.setId((int) tableestoque.getValueAt(linha, 0)); 
+        eb.setNome(tableestoque.getValueAt(linha, 1).toString());
+        eb.setDescricao(tableestoque.getValueAt(linha, 2).toString());
+        eb.setQuantidade(Integer.parseInt(tableestoque.getValueAt(linha, 3).toString()));
+        eb.setPreco(Double.parseDouble(tableestoque.getValueAt(linha, 4).toString()));
+
+        // Abre a tela de edição enviando o objeto 'eb'
+        Telaeditar tela = new Telaeditar(eb);
+        tela.setVisible(true);
+        this.setVisible(false);
+        preencherTabela();
+    } else {
+        JOptionPane.showMessageDialog(null, "Selecione um produto na tabela!");
+    }
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Adicionarproduto().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
