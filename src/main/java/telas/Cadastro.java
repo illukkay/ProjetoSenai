@@ -41,6 +41,8 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        confirmarsenha = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,38 +94,46 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel7.setText("Senha");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel2.setText("Confirmar senha");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(120, 120, 120))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(173, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cadastronome, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(cadastrouser, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(cadastrosenha, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senhanao)))
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cadastronome, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(cadastrouser, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addComponent(cadastrosenha, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                .addComponent(senhanao)
+                                .addComponent(confirmarsenha))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel1)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastronome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,14 +143,18 @@ public class Cadastro extends javax.swing.JFrame {
                 .addComponent(cadastrouser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadastrosenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmarsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senhanao)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,42 +179,56 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-    String nomeRealorfake = cadastronome.getText().trim(); 
+     
+    String nomeRealorfake = cadastronome.getText().trim();
     String loginUser = cadastrouser.getText().trim();
     String password = cadastrosenha.getText().trim();
-
     
-    if(nomeRealorfake.equals("")) {
+    String passwordConfirm = confirmarsenha.getText().trim(); 
+
+    if (nomeRealorfake.equals("")) {
         JOptionPane.showMessageDialog(null, "Preencha o nome:");
     } else if (loginUser.equals("")) {
         JOptionPane.showMessageDialog(null, "Preencha o usuario:");
     } else if (password.equals("")) {
         JOptionPane.showMessageDialog(null, "Preencha a senha:");
-    } else {
-     
-        UsuarioBean usuario = new UsuarioBean();
-        usuario.setNome(nomeRealorfake);
-        usuario.setUsuario(loginUser);
-        usuario.setSenha(password);
+    } 
+    
+    else if (passwordConfirm.equals("")) {
+        JOptionPane.showMessageDialog(null, "Confirme a sua senha:");
+    }
+    else {
         
+        if (password.equals(passwordConfirm)) {
+            
+            UsuarioBean usuario = new UsuarioBean();
+            usuario.setNome(nomeRealorfake);
+            usuario.setUsuario(loginUser);
+            usuario.setSenha(password);
 
-        
-        UsuarioDAO dao = new UsuarioDAO();
-        dao.cadastrar(usuario); 
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.cadastrar(usuario);
 
-        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-        
-        
-        cadastronome.setText("");
-        cadastrouser.setText("");
-        cadastrosenha.setText("");
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
-         new Login().setVisible(true);
-        this.setVisible(false);
+            
+            cadastronome.setText("");
+            cadastrouser.setText("");
+            cadastrosenha.setText("");
+            confirmarsenha.setText(""); // Limpa o novo campo também
 
-    }     
+            new Login().setVisible(true);
+            this.setVisible(false);
+            
+        } else {
+           
+            JOptionPane.showMessageDialog(null, "As senhas não coincidem!");
+            confirmarsenha.setText("");
+            confirmarsenha.requestFocus();
+        }
+    }
+
+         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -210,12 +238,16 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void senhanaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhanaoActionPerformed
         // TODO add your handling code here:
-        if (senhanao.isSelected()){
-            cadastrosenha.setEchoChar((char) 0);
-            
-        } else{
-            cadastrosenha.setEchoChar('*');
-        }
+        if (senhanao.isSelected()) {
+       
+        cadastrosenha.setEchoChar((char) 0);
+        confirmarsenha.setEchoChar((char) 0); 
+        
+    } else {
+       
+        cadastrosenha.setEchoChar('*');
+        confirmarsenha.setEchoChar('*'); 
+    }
     }//GEN-LAST:event_senhanaoActionPerformed
 
     /**
@@ -257,9 +289,11 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTextField cadastronome;
     private javax.swing.JPasswordField cadastrosenha;
     private javax.swing.JTextField cadastrouser;
+    private javax.swing.JPasswordField confirmarsenha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

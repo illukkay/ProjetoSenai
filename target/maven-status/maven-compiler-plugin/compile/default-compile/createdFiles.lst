@@ -19,6 +19,7 @@ model\UsuarioDAO.class
 telas\Login$6.class
 telas\Login$1.class
 telas\Inicio.class
+telas\Login$7.class
 telas\Inicio$3.class
 telas\Login$2.class
 telas\Adicionarproduto$2.class
@@ -31,5 +32,6 @@ telas\Cadastro$4.class
 telas\Adicionarproduto.class
 telas\Telaeditar$1.class
 telas\Inicio$5.class
+telas\Telaeditar$4.class
 telas\Cadastro$1.class
 telas\Adicionarproduto$1.class

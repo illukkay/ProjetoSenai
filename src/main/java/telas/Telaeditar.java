@@ -53,8 +53,11 @@ private int idLogado; // Variável para o ID
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        botaovoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel1.setText("Editar Produtos");
@@ -86,6 +89,13 @@ private int idLogado; // Variável para o ID
             }
         });
 
+        botaovoltar.setText("<");
+        botaovoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaovoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,6 +124,9 @@ private int idLogado; // Variável para o ID
                             .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(54, 54, 54))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(botaovoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +149,10 @@ private int idLogado; // Variável para o ID
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(8, 8, 8)
+                .addComponent(botaovoltar))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,6 +167,7 @@ private int idLogado; // Variável para o ID
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -160,19 +175,47 @@ private int idLogado; // Variável para o ID
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        EstoqueBean eb = new EstoqueBean();
-    eb.setId(idLogado); // Usa o ID que salvamos no construtor
-    eb.setNome(jTextField1.getText());
-    eb.setDescricao(jTextField2.getText());
-    eb.setQuantidade(Integer.parseInt(jTextField3.getText()));
-    eb.setPreco(Double.parseDouble(jTextField4.getText()));
+   
+    String nome = jTextField1.getText().trim();
+    String descricao = jTextField2.getText().trim();
+    String qtdTexto = jTextField3.getText().trim();
+    String precoTexto = jTextField4.getText().trim();
 
-    EstoqueDAO dao = new EstoqueDAO();
-    dao.atualizar(eb); // Usa o método atualizar que você postou acima
-    
-    JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
-    new Inicio().setVisible(true);
-        this.setVisible(false);
+    if (nome.equals("")) {
+        JOptionPane.showMessageDialog(null, "Preencha o nome!");
+        jTextField1.requestFocus();
+    } else if (descricao.equals("")) {
+        JOptionPane.showMessageDialog(null, "Preencha a descrição!");
+        jTextField2.requestFocus();
+    } else if (qtdTexto.equals("")) {
+        JOptionPane.showMessageDialog(null, "Preencha a quantidade!");
+        jTextField3.requestFocus();
+    } else if (precoTexto.equals("")) {
+        JOptionPane.showMessageDialog(null, "Preencha o preço!");
+        jTextField4.requestFocus();
+    } else {
+        
+        try {
+            EstoqueBean eb = new EstoqueBean();
+            eb.setId(idLogado); 
+            eb.setNome(nome);
+            eb.setDescricao(descricao);
+            eb.setQuantidade(Integer.parseInt(qtdTexto));
+            eb.setPreco(Double.parseDouble(precoTexto));
+
+            EstoqueDAO dao = new EstoqueDAO();
+            dao.atualizar(eb); 
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            
+            
+            new Inicio().setVisible(true); 
+            this.dispose(); 
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Quantidade e Preço devem ser números!");
+        }
+    }
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -181,9 +224,15 @@ private int idLogado; // Variável para o ID
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void botaovoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaovoltarActionPerformed
+        new Inicio().setVisible(true);
+        this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_botaovoltarActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaovoltar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
